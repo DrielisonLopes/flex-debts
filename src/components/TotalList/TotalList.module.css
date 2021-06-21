@@ -1,0 +1,35 @@
+.table_total{
+    width: 90%;
+    margin: 1rem;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table_total td{
+    padding: .75em;
+}
+
+.table_total th{
+    background: #ccc;
+    padding: .75em;
+}
+
+.table_total tbody tr td{
+    border-bottom: 1px solid #ccc;
+}
+
+.table_total tbody tr:first-child td{
+    border-top: 2px solid #666;
+}
+
+.table_total tbody tr:last-child td{
+    border-bottom: 2px solid #666;
+}
+
+.table_total tbody tr:nth-child(even) td{
+    background: #eee;
+}
+
+.table_total tbody td, .table_total tbody tr:first-child td, .table_total tbody tr:last-child td{
+    border: 1px solid #ddd;
+}

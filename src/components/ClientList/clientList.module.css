@@ -1,0 +1,53 @@
+.list {
+    color: #000;
+    padding-left: 0.5rem;
+}
+
+.tabela { 
+    padding: 0.4rem;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+} 
+
+.tabela tr {
+    height: 1.6rem;
+    background: #ccc;
+}
+
+.tabela tr td {
+    border: 1px solid #ccc;
+}
+
+.tabela tr:last-child td{
+    background: #eee;
+}
+
+/* .list button {    
+    margin: 0.8rem 0.8rem 1.6rem;
+    width: 4rem;
+    height: 2.2rem;
+    color: black;
+    text-decoration: none;
+    border: 1px solid #a8a7a79a;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+} */
+
+/* .alterar:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    background: #f2ff009a;
+}
+
+.deletar:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    background: rgba(255, 66, 41, 0.59);
+} */
+
+@media (max-width:485px) {
+    .list {
+        padding: 0;
+    }
+}
