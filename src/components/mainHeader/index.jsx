@@ -13,7 +13,7 @@ export default function mainHeader({users, setSelectedUser}) {
                         <button className={styles.btnUsers}> Usuários</button>
                     </h1>
                     <ul className={styles.user_list}>
-                        {users.map(user =>  <li onClick={() => setSelectedUser(user)}>{user.name}</li>)}
+                        {users.map(user =>  <li key={user.id} onClick={() => setSelectedUser(user)}>{user.name}</li>)}
                     </ul>
                 </div>
                 <div>

@@ -76,8 +76,18 @@
 @media (max-width:485px) {
   .main {
     border: none;
-    width: 93%;
-    margin: 0 1rem 0 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 0.2rem;
+  }
+  .grid {
+    width: 32rem;
+    margin: 0;
+    padding: 0;
+  }
+  .card {
+    width: 100%;
+    
   }
   .client {
     width: 100%;

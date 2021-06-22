@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect} from "react";
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
 import MainHeader from '../src/components/mainHeader';
-import ClientForm from "../src/components/ClientForm"
-import ClientList from "../src/components/ClientList"
-import TotalList from "../src/components/TotalList"
+import ClientForm from "../src/components/ClientForm";
+import ClientList from "../src/components/ClientList";
+import TotalList from "../src/components/TotalList";
 
 export default function Home() {
   const [users, setUsers] = useState([]);

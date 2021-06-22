@@ -85,7 +85,7 @@ export default function ClientList({ setSelectedDivida }) {
                                 </tr>
                                 </table>
                                 {dividas.map((divida) => (
-                                    <>
+                                    <div key={divida._id}>
                                         <table className={styles.tabela}>
                                             <tr>    
                                                 <td key={divida.idUsuario}>{divida.idUsuario}</td>
@@ -93,12 +93,12 @@ export default function ClientList({ setSelectedDivida }) {
                                                 <td key={divida.idUsuario}>{divida.valor}</td>
                                                 {/* <td key={divida.idUsuario}>{divida.criado}</td> */}
                                                 <td key={divida.idUsuario}>21-06-2021</td>
-                                                <td><button onClick={() => showDetails(divida)}>📋</button></td>
-                                                <td><button className={styles.alterar} onClick={() => alteraDivida(divida)} >📝</button></td>
-                                                <td><button className={styles.deletar} onClick={() => deleteDivida(divida)} >❌</button></td>
+                                                <td><button title="Detalhes" onClick={() => showDetails(divida)}>📋</button></td>
+                                                <td><button className={styles.alterar} title="Alterar" onClick={() => alteraDivida(divida)} >📝</button></td>
+                                                <td><button className={styles.deletar} title="Deletar" onClick={() => deleteDivida(divida)} >❌</button></td>
                                             </tr>
                                         </table>
-                                    </>
+                                    </div>
                                 ))}
                             </ol>
                         </div>
