@@ -60,8 +60,8 @@ export default function ClientForm({ users, selectedDivida}) {
         <section className={styles.main_content_section}>
           <main className={stylesHome.main}>
             <div className={stylesHome.grid}>
-              {selectedDivida ? <h1>Alterar Divida:</h1> : <h1>Incluir dívidas:</h1>}
               <form className={stylesHome.card} onSubmit={register}>
+              {selectedDivida ? <h1>Alterar Divida:</h1> : <h1>Incluir dívidas:</h1>}
                 <label htmlFor="search"><h3>Cliente: </h3></label>
                 <select 
                   name="users"

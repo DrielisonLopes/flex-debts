@@ -21,11 +21,11 @@ export default function mainHeader({users, setSelectedUser}) {
                         <button className={styles.btnUsers}> Detalhes</button>
                     </h1>
                 </div>
-                <div>
-                    <h1 className={styles.main_header_title}>
-                        <button className={styles.btnUsers}> Total</button>
-                    </h1>
-                </div>
+                {/* <div> */}
+                    {/* <h1 className={styles.main_header_title}> */}
+                        {/* <button className={styles.btnUsers}> Total</button> */}
+                    {/* </h1> */}
+                {/* </div> */}
             </ header>
         </div>
     );

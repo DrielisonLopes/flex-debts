@@ -1,15 +1,3 @@
-.list {
-    width: 70%;
-    margin: 1rem;
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    background: rgba(212, 206, 206, 0.26);
-}
-
 .main_content_section h2 {
     background: #000855fd;
     height: 4rem;
@@ -20,6 +8,7 @@
 }
 
 .registrar {
+    margin-top: 1.4rem;
     background-color: #00b74a;
 }
 

@@ -1,50 +1,61 @@
 .list {
     color: #000;
     padding-left: 0.5rem;
+    line-height: 2.4;
+    border: 1px solid #e0e0e0!important;
+    padding: 1.5rem!important;
 }
 
 .tabela { 
-    padding: 0.4rem;
     width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+    border-bottom: 1px solid #e0e0e0!important;
 } 
 
 .tabela tr {
     height: 1.6rem;
-    background: #ccc;
 }
 
-.tabela tr td {
-    border: 1px solid #ccc;
+.tabela th {
+    width: 14%;
+    text-align: center;
 }
 
-.tabela tr:last-child td{
-    background: #eee;
+.tabela td {
+    width: 14%;
+    text-align: center;
 }
 
-/* .list button {    
-    margin: 0.8rem 0.8rem 1.6rem;
-    width: 4rem;
-    height: 2.2rem;
-    color: black;
-    text-decoration: none;
-    border: 1px solid #a8a7a79a;
-    border-radius: 10px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-} */
+.tabela td:first-child {
+    font-weight: bold;
+}
 
-/* .alterar:hover {
+.main_content_section button {
+    padding: .375rem 1rem .3125rem;
+    font-size: .75rem;
+    line-height: 1.5;
+}
+
+.alterar {
+    background-color:#ffc107;
+}
+
+.alterar:hover {
     cursor: pointer;
     transition: 0.5s;
-    background: #f2ff009a;
+    background: #ffa900;
+}
+
+.deletar {
+    background-color: #ff1e44;
+    color: transparent;  
+    text-shadow: 0 0 0 #fff;
 }
 
 .deletar:hover {
     cursor: pointer;
     transition: 0.5s;
-    background: rgba(255, 66, 41, 0.59);
-} */
+    background: #dd2235;
+}
 
 @media (max-width:485px) {
     .list {

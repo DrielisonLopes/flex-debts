@@ -70,27 +70,34 @@ export default function ClientList({ setSelectedDivida }) {
                 <section className={styles.main_content_section}>
                     <main className={stylesHome.main}>
                         <div className={stylesHome.grid}>
-                            <h1>Detalhes:</h1>
                         <div className={stylesHome.card} >          
+                            <h1>Detalhes:</h1>
                             <ol className={styles.list}>
+                            <table className={styles.tabela}>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Motivo</th>
+                                    <th>Valor</th>
+                                    <th>Data</th>
+                                    <th>Detalhes</th>
+                                    <th>Alterar</th>
+                                    <th>Deletar</th>
+                                </tr>
+                                </table>
                                 {dividas.map((divida) => (
                                     <>
                                         <table className={styles.tabela}>
-                                            <tr>
-                                                <td>Usuário</td>
-                                                <td>Motivo</td>
-                                                <td>Valor</td>
-                                            </tr>
                                             <tr>    
                                                 <td key={divida.idUsuario}>{divida.idUsuario}</td>
                                                 <td key={divida.idUsuario}>{divida.motivo}</td>
                                                 <td key={divida.idUsuario}>{divida.valor}</td>
                                                 {/* <td key={divida.idUsuario}>{divida.criado}</td> */}
+                                                <td key={divida.idUsuario}>21-06-2021</td>
+                                                <td><button onClick={() => showDetails(divida)}>📋</button></td>
+                                                <td><button className={styles.alterar} onClick={() => alteraDivida(divida)} >📝</button></td>
+                                                <td><button className={styles.deletar} onClick={() => deleteDivida(divida)} >❌</button></td>
                                             </tr>
                                         </table>
-                                        <button onClick={() => showDetails(divida)}>Detalhes</button>
-                                        <button className={styles.alterar} onClick={() => alteraDivida(divida)} >Alterar</button>
-                                        <button className={styles.deletar} onClick={() => deleteDivida(divida)} >Deletar</button>
                                     </>
                                 ))}
                             </ol>
