@@ -2,40 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './clientList.module.css';
 import stylesHome from '../../../styles/Home.module.css';
 
-export default function ClientList({ setSelectedDivida }) {
-    const [dividas, setDividas] = useState([]);
+export default function ClientList({ dividas, alteraDivida, deleteDivida }) {
     const [details, setDetails] = useState({});
-
-    /**
-     * @description Consome dividas da API transforma em JSON para pegar resultados e atualiza estado do componente
-     */
-    useEffect(()=> {
-        fetch("https://provadev.xlab.digital/api/v1/divida/?uuid=0c17783c-087f-4b46-bc2b-38a43e1b9baa")
-            .then(response => response.json())
-            .then(data => {
-                setDividas(data.result)
-            })
-    }, [])
-
-    /**
-     * @name deleteDivida
-     * @description Filtra a divida no estado e faz delete request para API
-     * @param {object} divida - divida para deletar
-     * @return {void}
-     */
-    const deleteDivida = (divida) => {
-        const dividasFilter = dividas.filter(dividaToDelete => dividaToDelete._id !== divida._id)
-        setDividas(dividasFilter)
-        fetch(`https://provadev.xlab.digital/api/v1/divida/${divida._id}`,{
-            method: "DELETE",
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        }).then(response => console.log(response))
-
-        return;
-    }
-    
     /**
      * @name showDetails
      * @description Mostra detalhes da divida fazendo request na API pra pegar detalhes do usuario
@@ -43,25 +11,18 @@ export default function ClientList({ setSelectedDivida }) {
      * @return {void}
      */
     const showDetails = async (divida) => {
-        const responseUser = await fetch(`https://jsonplaceholder.typicode.com/users/${divida.idUsuario}`)
+        const responseUser = await fetch(`https://jsonplaceholder.typicode.com/users/${divida.idUsuario}?uuid=0c17783c-087f-4b46-bc2b-38a43e1b9baa`)
         const user  = await responseUser.json()
 
-        const responseDivida = await  fetch(`https://provadev.xlab.digital/api/v1/divida/${divida._id}?uuid=${divida.uuid}`)
+        const responseDivida = await  fetch(`https://provadev.xlab.digital/api/v1/divida/${divida._id}?uuid=0c17783c-087f-4b46-bc2b-38a43e1b9baa`)
         const dataDivida = await responseDivida.json()
 
         alert(`Usuário ${user.name} por ${dataDivida.result.motivo} deve R$${dataDivida.result.valor}`)
     }
-    
-    /**
-     * @name alteraDivida
-     * @description Altera divida no estado e manda PUT request para API
-     * @return {void}
-     * 
-     */
-    const alteraDivida = (divida) => {
 
-        setSelectedDivida(divida)
-        
+    const formatDate = (date) => {
+        const formatDate = new Date(date)
+        return date;
     }
 
     return  (
@@ -71,34 +32,52 @@ export default function ClientList({ setSelectedDivida }) {
                     <main className={stylesHome.main}>
                         <div className={stylesHome.grid}>
                         <div className={stylesHome.card} >          
-                            <h1>Detalhes:</h1>
+                            <h1>Detalhes</h1>
                             <ol className={styles.list}>
                             <table className={styles.tabela}>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Motivo</th>
-                                    <th>Valor</th>
-                                    <th>Data</th>
-                                    <th>Detalhes</th>
-                                    <th>Alterar</th>
-                                    <th>Deletar</th>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Motivo</th>
+                                        <th>Valor</th>
+                                        <th>Data</th>
+                                        <th>Detalhes</th>
+                                        <th>Alterar</th>
+                                        <th>Deletar</th>
+                                    </tr>
+                                    </tbody>
                                 </table>
                                 {dividas.map((divida) => (
-                                    <div key={divida._id}>
-                                        <table className={styles.tabela}>
-                                            <tr>    
-                                                <td key={divida.idUsuario}>{divida.idUsuario}</td>
-                                                <td key={divida.idUsuario}>{divida.motivo}</td>
-                                                <td key={divida.idUsuario}>{divida.valor}</td>
-                                                {/* <td key={divida.idUsuario}>{divida.criado}</td> */}
-                                                <td key={divida.idUsuario}>21-06-2021</td>
-                                                <td><button title="Detalhes" onClick={() => showDetails(divida)}>📋</button></td>
-                                                <td><button className={styles.alterar} title="Alterar" onClick={() => alteraDivida(divida)} >📝</button></td>
-                                                <td><button className={styles.deletar} title="Deletar" onClick={() => deleteDivida(divida)} >❌</button></td>
+                                    <table key={divida._id} className={styles.tabela}>
+                                        <tbody>
+                                            <tr>
+                                                <td>{divida.idUsuario}</td>
+                                                <td>{divida.motivo}</td>
+                                                <td>{divida.valor}</td>
+                                                <td>{formatDate(divida.criado)}</td>
+                                                <td>
+                                                    <button 
+                                                        title="Detalhes" 
+                                                        onClick={() => showDetails(divida)}>📋
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button 
+                                                        className={styles.alterar} 
+                                                        title="Alterar" 
+                                                        onClick={() => alteraDivida(divida)} >📝
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button 
+                                                        className={styles.deletar} 
+                                                        title="Deletar" 
+                                                        onClick={() => deleteDivida(divida)} >❌
+                                                    </button>
+                                                </td>
                                             </tr>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 ))}
                             </ol>
                         </div>

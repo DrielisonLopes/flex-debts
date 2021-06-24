@@ -9,21 +9,14 @@
 
 .registrar {
     margin-top: 1.4rem;
-    /* background-color: #00b74a; */
-}
-
-.registrar:hover {
-    /* background-color: #198754; */
 }
 
 .limpar {
-    /* background-color: #ffc107; */
     background-color: #fff;
     color: rgb(0, 70, 182);;
 }
 
 .limpar:hover {
-    /* background-color: #ffa900; */
     background-color: rgb(233, 233, 233);
 }
 

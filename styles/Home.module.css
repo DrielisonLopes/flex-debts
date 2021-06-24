@@ -41,10 +41,9 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  box-shadow: 10px 10px 10px 10px rgb(0 0 0 / 11%), 0 8px 10px -6px rgb(0 0 0 / 9%);
   -webkit-transition: all .3s ease-in-out;
-  transition: all .8s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .card .div {
@@ -75,19 +74,18 @@
 
 @media (max-width:485px) {
   .main {
-    border: none;
+    display: inline-block;
     width: 100%;
     margin: 0;
     padding: 0.2rem;
   }
   .grid {
     width: 32rem;
-    margin: 0;
-    padding: 0;
+    margin-left: 1rem;
+    padding: 0 0.8rem 0 0;
   }
   .card {
     width: 100%;
-    
   }
   .client {
     width: 100%;
